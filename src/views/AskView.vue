@@ -1,6 +1,16 @@
 <template>
     <div>
-        <ul class="news-list">
+        <!-- 1. askitems 바인딩 -->
+        <!-- <p v-for="item in askItems" v-bind:key="item.id">
+            <a v-bind:href="`/item/${item.id}`">
+                {{item.title}}
+            </a>
+            <small>{{item.time_ago}} by {{item.user}}</small>
+        </p> -->
+
+
+        <!-- 2. 구조 공통화 -->
+        <!-- <ul class="news-list">
             <li class="post" v-for="item in askItems" :key="item.id">
                 <div class="points">
                     {{ item.points }}
@@ -17,23 +27,19 @@
                     </small>
                 </div>
             </li>
-        </ul>
+        </ul> -->
 
-
-        <!-- <p v-for="item in askItems" v-bind:key="item.id">
-            <a v-bind:href="`/item/${item.id}`">
-                {{item.title}}
-            </a>
-            <small>{{item.time_ago}} by {{item.user}}</small>
-        </p> -->
+        <!-- 3. 공통 컴포넌트 사용 -->
+        <list-item></list-item>
+        
     </div>
 </template>
 
 <script>
-    import {/*mapState,*/ mapGetters} from 'vuex'
-
+    // import {/*mapState,*/ mapGetters} from 'vuex'
     // import {fetchAskList} from '../api/index'
 
+    /*
     export default {
         data() {
             return {
@@ -68,12 +74,21 @@
             // .catch(function(error){
             //     console.log(error);
             // })
+        }        
+    }*/
+
+    import ListItem from '../components/ListItem.vue';
+    
+    export default {
+        components : {
+            ListItem,
         }
     }
+
 </script>
 
 <style>
-    .news-list{
+    /* .news-list{
         margin:0;
         padding:0;
     }  
@@ -96,5 +111,5 @@
     }
     .link-text {
         color: #828282;
-    }
+    } */
 </style>

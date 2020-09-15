@@ -1,9 +1,16 @@
 <template>
     <div>
-        <ul class="news-list">
+        <!-- <p v-for="item in this.$store.state.jobs" v-bind:key="item.id">
+            <a v-bind:href="item.url">
+                {{ item.title }}
+            </a>
+            <small>{{item.domain}}</small>
+        </p> -->
+
+        <!-- <ul class="news-list">
             <li class="post" v-for="item in this.$store.state.jobs" :key="item.id">
                 <div class="points">
-                    {{ item.points || 0}} <!-- null 인경우 0 return -->
+                    {{ item.points || 0}}  // null 인경우 0 return
                 </div>
                 <div>
                     <p class="news-title">
@@ -15,44 +22,47 @@
                     </small>
                 </div>
             </li>
-        </ul>
+        </ul> -->
 
-        <!-- <p v-for="item in this.$store.state.jobs" v-bind:key="item.id">
-            <a v-bind:href="item.url">
-                {{ item.title }}
-            </a>
-            <small>{{item.domain}}</small>
-        </p> -->
+        <list-item></list-item>        
     </div>
 </template>
 
 <script>
     // import {fetchJobsList} from '../api/index'
 
-    export default {
-        data(){
-            return {
-                // users : []
-            }
-        },
-        created() {
-            this.$store.dispatch('FETCH_JOBS');
+    // export default {
+    //     data(){
+    //         return {
+    //             // users : []
+    //         }
+    //     },
+    //     created() {
+    //         this.$store.dispatch('FETCH_JOBS');
 
-            // var vm = this;
-            // fetchJobsList()
-            // .then(function(response){
-            //     console.log(response);
-            //     vm.users = response.data;
-            // })
-            // .catch(function(error){
-            //     console.log(error);
-            // })
+    //         // var vm = this;
+    //         // fetchJobsList()
+    //         // .then(function(response){
+    //         //     console.log(response);
+    //         //     vm.users = response.data;
+    //         // })
+    //         // .catch(function(error){
+    //         //     console.log(error);
+    //         // })
+    //     }
+    // }
+
+    import ListItem from '../components/ListItem.vue';
+
+    export default {
+        components: {
+            ListItem,
         }
     }
 </script>
 
 <style>
-    .news-list{
+    /* .news-list{
         margin:0;
         padding:0;
     }  
@@ -75,5 +85,5 @@
     }
     .link-text {
         color: #828282;
-    }
+    } */
 </style>
